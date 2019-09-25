@@ -15,11 +15,38 @@ public class CollectorTest {
     @After
     public void tearDown() throws Exception {
     }
-
+    Collector testCollector = setupCollector();
     @Test
     public void collectorInstantiatesCorrectly() throws  Exception{
-        Collector testCollector = setupCollector();
         assertEquals(true,testCollector instanceof Collector);
+    }
+    @Test
+    public void getFirmNameHasAFirmName() throws Exception{
+        assertEquals("Taka-Taka-Collection",testCollector.getFirmName());
+    }
+    @Test
+    public void getEstateGetsTheEsate() throws Exception{
+        assertEquals("Rongai",testCollector.getEstate());
+    }
+    @Test
+    public void getFeeChargeReturnsTheFeeCharged() throws Exception{
+        assertEquals(300,testCollector.getFeeCharge());
+    }
+    @Test
+    public void getOperationsReturnsTheDayOfOperation() throws Exception{
+        assertEquals("Tuesday",testCollector.getOperationDay());
+    }
+    @Test
+    public void getDisposalModeReturnTheDisposalMode() throws Exception{
+        assertEquals("Burning",testCollector.getDisposalMode());
+    }
+    @Test
+    public void getRecyclingSiteReturnTheRecyclingSite() throws Exception{
+        assertEquals("Rimpa",testCollector.getRecyclingSite());
+    }
+    @Test
+    public void getCustomerNumberGetsTheCustomerNumber() throws Exception{
+        assertEquals(45,testCollector.getCustomersNumber());
     }
 
     //helper methods
