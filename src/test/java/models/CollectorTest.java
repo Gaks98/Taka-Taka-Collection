@@ -48,6 +48,41 @@ public class CollectorTest {
     public void getCustomerNumberGetsTheCustomerNumber() throws Exception{
         assertEquals(45,testCollector.getCustomersNumber());
     }
+    @Test
+    public void setFirmNameSetsCorrectFirmName() throws Exception{
+        testCollector.setFirmName("Taka-Taka");
+        assertNotEquals("Taka-Taka-Collection",testCollector.getFirmName());
+    }
+    @Test
+    public void setEstateSetCorrectEstate() throws Exception{
+        testCollector.setEstate("Kitengela");
+        assertNotEquals("Rongai",testCollector.getEstate());
+    }
+    @Test
+    public void setChargesSetCorrectCharge() throws Exception{
+        testCollector.setFeeCharge(200);
+        assertNotEquals(300,testCollector.getFeeCharge());
+    }
+    @Test
+    public void setOperationDaySetCorrectOperationDay() throws Exception{
+        testCollector.setOperationDay("Monday");
+        assertNotEquals("Tuesday",testCollector.getOperationDay());
+    }
+    @Test
+    public void setDisposalModeSetCorrectDisposalMode() throws Exception{
+        testCollector.setDisposalMode("Throwing Anywhere");
+        assertNotEquals("Burning",testCollector.getDisposalMode());
+    }
+    @Test
+    public void setRecyclingSetSetCorrectRecyclingSite() throws Exception{
+        testCollector.setRecyclingSite("Exciting");
+        assertNotEquals("Rimpa",testCollector.getRecyclingSite());
+    }
+    @Test
+    public void setNumberOfCustomersSetCorrectNumberOfCustomers() throws Exception{
+        testCollector.setCustomersNumber(10);
+        assertNotEquals(45,testCollector.getCustomersNumber());
+    }
 
     //helper methods
     public Collector setupCollector(){
