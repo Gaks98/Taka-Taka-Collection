@@ -16,7 +16,6 @@ public class Estate {
 
 
     }
-
     public void setCollector_id(int collector_id) {
         this.collector_id = collector_id;
     }
@@ -32,16 +31,16 @@ public class Estate {
         this.location = location;
     }
 
-    public String getE_name() {
+    public String getName() {
       return name;
     }
 
-    public String getE_location() {
+    public String getLocation() {
       return location;
 
     }
 
-    public int getE_collector_id() {
+    public int getCollector_id() {
       return collector_id;
     }
 
@@ -51,14 +50,18 @@ public class Estate {
         if(o==null||getClass()!=o.getClass())return false;
 
         Estate estate =(Estate)o;
-        return getE_collector_id()== estate.getE_collector_id()&&
-                getE_name().equals(estate.getE_name()) &&
-                getE_location().equals(estate.getE_location());
+        return getCollector_id()== estate.getCollector_id()&&
+                getName().equals(estate.getCollector_id()) &&
+                getName().equals(estate.getName());
     }
     @Override
     public int hashCode() {
 
-            return Objects.hash(getE_name(), getE_name(), getE_collector_id());
+            return Objects.hash(getName(), getLocation(), getCollector_id());
 
+    }
+
+    public int getId() {
+        return id;
     }
 }

@@ -29,12 +29,12 @@ public class EstateTest {
 
 
     @Test
-    public void getE_location() {
+    public void getLocation() {
         Estate testEstate = setupEstate();
         assertEquals("karen", testEstate.getLocation());
     }
     @Test
-    public void getE_collector_id() {
+    public void getCollector_id() {
         Estate testEstate = setupEstate();
         assertEquals(5, testEstate.getCollector_id());
     }

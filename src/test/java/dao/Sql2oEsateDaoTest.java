@@ -28,25 +28,43 @@ public class Sql2oEsateDaoTest {
 
     @Test
     public void add() {
+        Estate estate =setupNewEstate();
+        int originalEstateId = estate.getId();
+        estateDao.add(estate);
+        assertNotEquals(originalEstateId,estate.getId());
     }
-
     @Test
     public void findById() {
+        Estate estate = setupNewEstate();
+        estateDao.add(estate);
+        Estate foundEstate = estateDao.findById(estate.getId());
+        assertEquals(estate, foundEstate);
+
     }
 
     @Test
-    public void getAll() {
+    public void getAll()throws Exception {
+        Estate estate =setupNewEstate();
+        estateDao.add(estate);
+        assertTrue(estateDao.getAll().contains(estate));
     }
 
     @Test
     public void deleteById() {
+        Estate estate =setupNewEstate();
+        estateDao.add(estate);
+        estateDao.deleteById(estate.getId());
     }
 
     @Test
-    public void clearAll() {
+    public void clearAll() throws Exception{
+        Estate estate =setupNewEstate();
+        Estate estate2 =setupNewEstate();
+        estateDao.clearAll();
+        assertEquals(0,estateDao.getAll().size());
     }
-    public Estate setupEstate(){
-        return new Estate("Moringa","Kilimani",5);
+    public Estate setupNewEstate(){
+        return new Estate("Adams","karen",5);
     }
 
 }

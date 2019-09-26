@@ -11,7 +11,9 @@ public interface EstateDao {
     Estate findById(int id);
 
     List<Estate> getAll();
+
     void deleteById(int id);
+
     void clearAll();
 
 }
