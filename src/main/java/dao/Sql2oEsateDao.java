@@ -8,10 +8,10 @@ import org.sql2o.Sql2oException;
 
 import java.util.List;
 
-public class Sql2oEstateDao implements EstateDao {
+public class Sql2oEsateDao implements EstateDao {
 
     private final Sql2o sql2o;
-    public Sql2oEstateDao(Sql2o sql2o){ this.sql2o = sql2o; }
+    public Sql2oEsateDao(Sql2o sql2o){ this.sql2o = sql2o; }
 
 
     @Override

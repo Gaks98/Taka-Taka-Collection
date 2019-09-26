@@ -9,15 +9,15 @@ import org.sql2o.Sql2o;
 
 import static org.junit.Assert.*;
 
-public class Sql2OEstateDaoTest {
-    private Sql2oEstateDao estateDao;
+public class Sql2OEsateDaoTest {
+    private Sql2oEsateDao estateDao;
     private Connection conn;
 
     @Before
     public void setUp() throws Exception {
         String connectionString = "jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
         Sql2o sql2o = new Sql2o(connectionString, "", "");
-        estateDao = new Sql2oEstateDao(sql2o);
+        estateDao = new Sql2oEsateDao(sql2o);
         conn = sql2o.open();
     }
 
