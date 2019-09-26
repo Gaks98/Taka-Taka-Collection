@@ -5,6 +5,7 @@ import models.Estate;
 import java.util.List;
 
 public class Sql2oEsateDao implements EstateDao {
+
     @Override
     public void add(Estate estate) {
 
