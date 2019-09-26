@@ -3,6 +3,8 @@ import com.google.gson.Gson;
 import dao.Sql2oCollectorDao;
 import models.Collector;
 import org.sql2o.*;
+import spark.ModelAndView;
+import spark.template.handlebars.HandlebarsTemplateEngine;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,6 +13,7 @@ import static spark.Spark.*;
 
 public class App {
     public static void main(String[] args) {
+        staticFileLocation("/public");
         Sql2oCollectorDao collectorDao;
         Connection conn;
         Gson gson = new Gson();
@@ -20,6 +23,13 @@ public class App {
 
         collectorDao = new Sql2oCollectorDao(sql2o);
         conn =sql2o.open();
+
+        //routes for the layout project
+        get("/",(request, response) -> {
+            Map<String,Object>model = new HashMap<>();
+            return new ModelAndView(model,"index.hbs");
+        },new HandlebarsTemplateEngine());
+
 
         post("/collectors/new","application/json",(request, response) -> {
             Collector collector =gson.fromJson(request.body(),Collector.class);
