@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface CollectorDao {
     //create
-    void add(Collector collector);
+    void add (Collector collector);
 
     //read
     List<Collector>getAll();
