@@ -9,6 +9,7 @@ import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static spark.Spark.*;
@@ -31,6 +32,14 @@ public class App {
         get("/",(request, response) -> {
             Map<String,Object>model = new HashMap<>();
             return new ModelAndView(model,"index.hbs");
+        },new HandlebarsTemplateEngine());
+
+
+        get("/estate/new",(request, response) ->{
+            Map<String, Object> model = new HashMap<>();
+            List<Estate> estate = estateDao.getAll();
+            model.put("estate",estate);
+            return new ModelAndView(model,"estate-form.hbs");
         },new HandlebarsTemplateEngine());
 
 
