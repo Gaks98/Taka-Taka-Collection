@@ -2,6 +2,8 @@ import Exceptions.ApiException;
 import com.google.gson.Gson;
 import dao.Sql2oCollectorDao;
 import models.Collector;
+import dao.Sql2oEsateDao;
+import models.Estate;
 import org.sql2o.*;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
@@ -15,12 +17,13 @@ public class App {
     public static void main(String[] args) {
         staticFileLocation("/public");
         Sql2oCollectorDao collectorDao;
+        Sql2oEsateDao estateDao;
         Connection conn;
         Gson gson = new Gson();
 
         String connectionString ="jdbc:h2:~/Taka-Taka-Collection.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
         Sql2o sql2o =new Sql2o(connectionString,"","");
-
+        estateDao = new Sql2oEsateDao(sql2o);
         collectorDao = new Sql2oCollectorDao(sql2o);
         conn =sql2o.open();
 
@@ -53,6 +56,19 @@ public class App {
             }
 
         });
+        post("/estate/new","application/json",(request, response) -> {
+            Estate estate =gson.fromJson(request.body(),Estate.class);
+            estateDao.add(estate);
+            response.status(201);
+            response.type("application/json");
+            return gson.toJson(estate);
+        });
+        get("/estate","application/json",(request, response) -> {
+            response.type("application/json");
+            return gson.toJson(estateDao.getAll());
+        });
+
+
         exception(ApiException.class, (exc, req, res) -> {
             ApiException err = (ApiException) exc;
             Map<String, Object> jsonMap = new HashMap<>();
