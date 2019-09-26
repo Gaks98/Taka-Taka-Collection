@@ -31,7 +31,7 @@ public class EstateTest {
     @Test
     public void getLocation() {
         Estate testEstate = setupEstate();
-        assertEquals("karen", testEstate.getLocation());
+        assertEquals("Karen", testEstate.getLocation());
     }
     @Test
     public void getCollector_id() {
@@ -40,6 +40,6 @@ public class EstateTest {
     }
 
     public Estate setupEstate(){
-        return new Estate("Adams","karen",5);
+        return new Estate("Adams","Karen",5);
     }
 }

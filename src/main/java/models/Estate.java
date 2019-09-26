@@ -8,6 +8,22 @@ public class Estate {
     private String location;
     private int collector_id;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Estate estate = (Estate) o;
+        return getId() == estate.getId() &&
+                getCollector_id() == estate.getCollector_id() &&
+                Objects.equals(getName(), estate.getName()) &&
+                Objects.equals(getLocation(), estate.getLocation());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getName(), getLocation(), getCollector_id());
+    }
+
     public Estate(String name, String location, int collector_id){
 
         this.name=name;
@@ -44,22 +60,7 @@ public class Estate {
       return collector_id;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o)return true;
-        if(o==null||getClass()!=o.getClass())return false;
 
-        Estate estate =(Estate)o;
-        return getCollector_id()== estate.getCollector_id()&&
-                getName().equals(estate.getCollector_id()) &&
-                getName().equals(estate.getName());
-    }
-    @Override
-    public int hashCode() {
-
-            return Objects.hash(getName(), getLocation(), getCollector_id());
-
-    }
 
     public int getId() {
         return id;
