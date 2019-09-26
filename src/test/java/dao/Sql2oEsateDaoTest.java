@@ -1,5 +1,6 @@
 package dao;
 
+import models.Estate;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,6 +23,7 @@ public class Sql2oEsateDaoTest {
 
     @After
     public void tearDown() throws Exception {
+        conn.close();
     }
 
     @Test
@@ -43,4 +45,8 @@ public class Sql2oEsateDaoTest {
     @Test
     public void clearAll() {
     }
+    public Estate setupEstate(){
+        return new Estate("Moringa","Kilimani",5);
+    }
+
 }
