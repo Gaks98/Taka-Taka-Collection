@@ -27,5 +27,11 @@ public class App {
             response.type("application/json");
             return gson.toJson(collectorDao.getAll());
         });
+        get("/collectors/:id","application/json",(request, response) -> {
+            int collectorId = Integer.parseInt(request.params("id"));
+            Collector collectorToFind = collectorDao.findById(collectorId);
+            response.type("application/json");
+            return gson.toJson(collectorDao.findById(collectorId));
+        });
     }
 }
