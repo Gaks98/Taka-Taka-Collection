@@ -1,3 +1,4 @@
+import Exceptions.ApiException;
 import com.google.gson.Gson;
 import dao.Sql2oCollectorDao;
 import models.Collector;
@@ -30,8 +31,14 @@ public class App {
         get("/collectors/:id","application/json",(request, response) -> {
             int collectorId = Integer.parseInt(request.params("id"));
             Collector collectorToFind = collectorDao.findById(collectorId);
-            response.type("application/json");
-            return gson.toJson(collectorDao.findById(collectorId));
+            if(collectorToFind == null){
+                throw new ApiException(404,String.format("Collector does not exist"));
+            }else {
+                response.type("application/json");
+                return gson.toJson(collectorDao.findById(collectorId));
+            }
+
         });
+
     }
 }
