@@ -13,8 +13,6 @@ public interface CustomerDao {
     List<Customer> getAllCustomers();
     List<Customer> getAllCustomersByEstate(int estateId);
 
-    //Add a user to a department
-    void addCustomerToEstate(Customer customer, Estate estate);
 
     //delete
 //    void deleteById(int id);

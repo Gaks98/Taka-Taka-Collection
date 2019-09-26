@@ -3,22 +3,24 @@ package models;
 import java.util.Objects;
 
 public class Collector {
-    public boolean equals(Object object) {
-        if (this == object) return true;
-        if (object == null || getClass() != object.getClass()) return false;
-        if (!super.equals(object)) return false;
-        Collector collector = (Collector) object;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Collector collector = (Collector) o;
         return feeCharge == collector.feeCharge &&
                 customersNumber == collector.customersNumber &&
-                java.util.Objects.equals(firmName, collector.firmName) &&
-                java.util.Objects.equals(estate, collector.estate) &&
-                java.util.Objects.equals(operationDay, collector.operationDay) &&
-                java.util.Objects.equals(disposalMode, collector.disposalMode) &&
-                java.util.Objects.equals(recyclingSite, collector.recyclingSite);
+                id == collector.id &&
+                Objects.equals(firmName, collector.firmName) &&
+                Objects.equals(estate, collector.estate) &&
+                Objects.equals(operationDay, collector.operationDay) &&
+                Objects.equals(disposalMode, collector.disposalMode) &&
+                Objects.equals(recyclingSite, collector.recyclingSite);
     }
 
+    @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), firmName, estate, feeCharge, operationDay, disposalMode, recyclingSite, customersNumber);
+        return Objects.hash(firmName, estate, feeCharge, operationDay, disposalMode, recyclingSite, customersNumber, id);
     }
 
     public String getFirmName() {
@@ -77,6 +79,13 @@ public class Collector {
         this.customersNumber = customersNumber;
     }
 
+    public int getId(){
+        return id;
+    }
+    public void setId(int id){
+        this.id=id;
+    }
+
     public Collector(String firmName, String estate, int feeCharge, String operationDay, String disposalMode, String recyclingSite, int customersNumber) {
         this.firmName = firmName;
         this.estate = estate;
@@ -94,5 +103,5 @@ public class Collector {
     private String disposalMode;
     private String recyclingSite;
     private int customersNumber;
-
+    private int id;
 }

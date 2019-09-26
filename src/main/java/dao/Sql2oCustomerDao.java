@@ -45,24 +45,10 @@ public class Sql2oCustomerDao implements CustomerDao {
     }
 
     @Override
-    public void addCustomerToEstate(Customer customer, Estate estate) {
-        String sql = "INSERT INTO estates_customers(estateId, customerId) VALUES (:estateId, :customerId)";
-        try(Connection conn = sql2o.open()){
-            conn.createQuery(sql)
-//                    .addParameter("estateId", estate.getId())
-                    .addParameter("customerId", customer.getId())
-                    .throwOnMappingFailure(false)
-                    .executeUpdate();
-        }catch (Sql2oException ex){
-            System.out.println(ex);
-        }
-    }
-
-    @Override
-    public List<Customer>getAllCustomersByEstate(int departmentId){
+    public List<Customer>getAllCustomersByEstate(int estateId){
         try (Connection conn = sql2o.open()){
-            return conn.createQuery("SELECT * FROM users WHERE departmentId = :departmentId")
-                    .addParameter("departmentId",departmentId)
+            return conn.createQuery("SELECT * FROM customers WHERE estateId = :estateId")
+                    .addParameter("estateId",estateId)
                     .executeAndFetch(Customer.class);
         }
     }
