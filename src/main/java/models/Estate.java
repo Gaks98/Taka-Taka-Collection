@@ -8,15 +8,29 @@ public class Estate {
     private String location;
     private int collector_id;
 
-
-
     public Estate(String name, String location, int collector_id){
-      this.name=name;
-      this.location=location;
-      this.collector_id=collector_id;
+
+        this.name=name;
+        this.location=location;
+        this.collector_id=collector_id;
 
 
-  }
+    }
+
+    public void setCollector_id(int collector_id) {
+        this.collector_id = collector_id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
 
     public String getE_name() {
       return name;

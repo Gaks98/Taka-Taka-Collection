@@ -15,23 +15,31 @@ public class EstateTest {
     @After
     public void tearDown() throws Exception {
     }
+
     @Test
-    public void getE_name() {
+    public void estateInstantiatesCorrectly() throws Exception{
         Estate testEstate = setupEstate();
-        assertEquals("Moringa", testEstate.getE_name());
+        assertTrue(testEstate instanceof Estate);
     }
+    @Test
+    public void getName() {
+        Estate testEstate = setupEstate();
+        assertEquals("Adams", testEstate.getName());
+    }
+
+
     @Test
     public void getE_location() {
         Estate testEstate = setupEstate();
-        assertEquals("Kilimani", testEstate.getE_location());
+        assertEquals("karen", testEstate.getLocation());
     }
     @Test
     public void getE_collector_id() {
         Estate testEstate = setupEstate();
-        assertEquals(5, testEstate.getE_collector_id());
+        assertEquals(5, testEstate.getCollector_id());
     }
 
     public Estate setupEstate(){
-        return new Estate("Moringa","Kilimani",5);
+        return new Estate("Adams","karen",5);
     }
 }
