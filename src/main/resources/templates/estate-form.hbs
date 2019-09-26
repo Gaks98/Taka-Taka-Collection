@@ -1,0 +1,32 @@
+{{#partial "title"}}
+    Estate
+{{/partial}}
+{{#partial "content"}}
+    <div class="card">
+       <div class="card-header">
+           Create the estate
+       </div>
+        <div class="card-body">
+            <form action="/estate/new" method="post">
+                <div class="form-group">
+                    <label for="name">Estate</label>
+                    <input id="name" name="name" class="form-control" type="text" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Location</label>
+                    <input id="location" name="location" class="form-control" type="text" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Estate</label>
+                    <input id="collector_id" name="collector_id" class="form-control" min="1" type="number">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+
+    </div>
+
+
+{{/partial}}
+
+{{> layout.hbs}}
