@@ -78,6 +78,7 @@ public class Collector {
     public void setCustomersNumber(int customersNumber) {
         this.customersNumber = customersNumber;
     }
+
     public int getId(){
         return id;
     }
