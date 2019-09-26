@@ -39,6 +39,9 @@ public class App {
             }
 
         });
-
+        //filter
+        after((request, response) -> {
+            response.type("application/json");
+        });
     }
 }
