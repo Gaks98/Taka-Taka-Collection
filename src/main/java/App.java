@@ -63,6 +63,7 @@ public class App {
             response.type("application/json");
             return gson.toJson(estate);
         });
+
         get("/estate","application/json",(request, response) -> {
             response.type("application/json");
             return gson.toJson(estateDao.getAll());
