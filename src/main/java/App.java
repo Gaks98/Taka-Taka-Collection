@@ -83,7 +83,5 @@ public class App {
             model.put("collector",collector1);
             return new ModelAndView(model,"display.hbs");
         },new HandlebarsTemplateEngine());
-
-
     }
 }
