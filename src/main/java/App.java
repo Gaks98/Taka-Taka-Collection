@@ -6,7 +6,9 @@ import org.sql2o.*;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static spark.Spark.*;
@@ -30,6 +32,10 @@ public class App {
             return new ModelAndView(model,"index.hbs");
         },new HandlebarsTemplateEngine());
 
+        get("/new/collector",(request, response) -> {
+            Map<String,Object>model =new HashMap<>();
+            return new ModelAndView(model,"collectorForm.hbs");
+        },new HandlebarsTemplateEngine());
 
         post("/collectors/new","application/json",(request, response) -> {
             Collector collector =gson.fromJson(request.body(),Collector.class);
@@ -49,6 +55,7 @@ public class App {
                 throw new ApiException(404,String.format("Collector does not exist"));
             }else {
                 response.type("application/json");
+
                 return gson.toJson(collectorDao.findById(collectorId));
             }
 
@@ -62,9 +69,21 @@ public class App {
             res.status(err.getStatusCode()); //set the status
             res.body(gson.toJson(jsonMap));  //set the output.
         });
-        //filter
-        after((request, response) -> {
-            response.type("application/json");
-        });
+
+        post("/collectors/new",(request, response) -> {
+            Map<String,Object>model= new HashMap<>();
+            String firmName =request.queryParams("firmName");
+            String estate = request.queryParams("estate");
+            int feeCharge =Integer.parseInt(request.queryParams("feeCharge"));
+            String operationDay = request.queryParams("operationDay");
+            String disposalMode = request.queryParams("disposalMode");
+            String recyclingSite = request.queryParams("recyclingSite");
+            int customerNumber = Integer.parseInt(request.queryParams("customersNumber"));
+            Collector collector1=new Collector(firmName,estate,feeCharge,operationDay,disposalMode,recyclingSite,customerNumber);
+            model.put("collector",collector1);
+            return new ModelAndView(model,"display.hbs");
+        },new HandlebarsTemplateEngine());
+
+
     }
 }
