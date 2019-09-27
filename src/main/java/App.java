@@ -67,13 +67,13 @@ public class App {
         post("/new/customer", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             String name = req.queryParams("name");
-            String position = req.queryParams("location");
+            String location = req.queryParams("location");
             String address = req.queryParams("address");
-            int estateId = Integer.parseInt(req.queryParams("estateNo"));
-            Customer customer = new Customer(name,position,address,estateId);
+            int estateId = Integer.parseInt(req.queryParams("estateId"));
+            Customer customer = new Customer(name,location,address,estateId);
             customerDao.add(customer);
             model.put("customer",customerDao.getAllCustomers());
-            return new ModelAndView(model,"customer-detail.hbs");
+            return new ModelAndView(model,"success.hbs");
         },new HandlebarsTemplateEngine());
 
         //post:add a user(customers)
