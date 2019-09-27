@@ -29,8 +29,9 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#service">Services</a></li>
-                <li><a href="#classes">Customers</a></li>
-                <li><a href="#schedule">Join</a></li>
+                <li><a href="/new/customer">Add Customers</a></li>
+                <li><a href="/new/collector">Add Collector</a></li>
+                <li><a href="#schedule">Schedule</a></li>
                 <li><a href="#price">Price</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -425,58 +426,57 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
-	Ksh (d0ocument).ready(function(){
+	$(document).ready(function () {
 
-      Ksh ("0.ham-burger, .nav ul li a").click(function(){
+			$(".ham-burger, .nav ul li a").click(function () {
 
-        Ksh ("0.nav").toggleClass("open")
+				$(".nav").toggleClass("open")
 
-        Ksh ("0.ham-burger").toggleClass("active");
-      })
-      Ksh ("0.accordian-container").click(function(){
-      	Ksh ("0.accordian-container").children(".body").slideUp();
-      	Ksh ("0.accordian-container").removeClass("active")
-      	Ksh ("0.accordian-container").children(".head").children("span").removeClass("fa-angle-down").addClass("fa-angle-up")
-      	Ksh (t0his).children(".body").slideDown();
-      	Ksh (t0his).addClass("active")
-      	Ksh (t0his).children(".head").children("span").removeClass("fa-angle-up").addClass("fa-angle-down")
-      })
+				$(".ham-burger").toggleClass("active");
+			})
+			$(".accordian-container").click(function () {
+				$(".accordian-container").children(".body").slideUp();
+				$(".accordian-container").removeClass("active")
+				$(".accordian-container").children(".head").children("span").removeClass("fa-angle-down").addClass("fa-angle-up")
+				$(this).children(".body").slideDown();
+				$(this).addClass("active")
+				$(this).children(".head").children("span").removeClass("fa-angle-up").addClass("fa-angle-down")
+			})
 
-       Ksh ("0.nav ul li a, .go-down").click(function(event){
-         if(this.hash !== ""){
+			$(".nav ul li a, .go-down").click(function (event) {
+				if (this.hash !== "") {
 
-              event.preventDefault();
+					event.preventDefault();
 
-              var hash=this.hash;
+					var hash = this.hash;
 
-              Ksh ('0html,body').animate({
-                scrollTop:Ksh (h0ash).offset().top
-              },800 , function(){
-                 window.location.hash=hash;
-              });
+					$('html,body').animate({
+						scrollTop: $(hash).offset().top
+					}, 800, function () {
+						window.location.hash = hash;
+					});
 
-              // add active class in navigation
-              Ksh ("0.nav ul li a").removeClass("active")
-              Ksh (t0his).addClass("active")
-         }
-      })
-})
+					// add active class in navigation
+					$(".nav ul li a").removeClass("active")
+					$(this).addClass("active")
+				}
+			})
+		})
 
-</script>
+	</script>
 <script src="js/wow.min.js"></script>
 <script>
-    wow = new WOW(
-      {
-        animateClass: 'animated',
-        offset:       0,
-      }
-    );
-    wow.init();
-  </script>
+	wow = new WOW(
+		{
+			animateClass: 'animated',
+			offset: 0,
+		}
+	);
+	wow.init();
+</script>
 </body>
+
 </html>
-
-
 
 
 
