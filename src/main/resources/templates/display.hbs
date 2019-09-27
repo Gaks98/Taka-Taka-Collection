@@ -1,0 +1,18 @@
+{{#partial "content"}}
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+
+                <h5 class="card-title">&nbsp;&nbsp;&nbsp;&nbsp;{{collector.firmName}}</h5>
+                <p class="card-text">Firm location:&nbsp;&nbsp;&nbsp;{{collector.estate}}</p>
+                <p class="card-text">Day of operation:&nbsp;&nbsp;{{collector.operationDay}}</p>
+                <p class="card-text">Firm's disposal mode:&nbsp;&nbsp;{{collector.disposalMode}}</p>
+                <p class="card-text">Location of recycling site:&nbsp;{{collector.recyclingSite}}</p>
+                <p class="card-text">Current number of customers:&nbsp;{{collector.customersNumber}}</p>
+                <a href="/" class="btn btn-primary">Go back</a>
+
+
+        </div>
+    </div>
+{{/partial}}
+
+{{> layout.hbs}}
