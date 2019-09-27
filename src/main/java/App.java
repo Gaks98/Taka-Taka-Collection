@@ -33,15 +33,24 @@ public class App {
             Map<String,Object>model = new HashMap<>();
             return new ModelAndView(model,"index.hbs");
         },new HandlebarsTemplateEngine());
+   /*    post("estate/new",(request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            String name = request.queryParams("name");
 
-
-        get("/estate/new",(request, response) ->{
+            String location = request.queryParams("location");
+            Estate newEstate = new Estate();
+           Estate.a
+           return new ModelAndView(model,"estate-form.hbs");
+        },new HandlebarsTemplateEngine());
+*/
+   /*    post("/estate",(request, response) ->{
             Map<String, Object> model = new HashMap<>();
             List<Estate> estate = estateDao.getAll();
             model.put("estate",estate);
-            return new ModelAndView(model,"estate-form.hbs");
-        },new HandlebarsTemplateEngine());
 
+            return new ModelAndView(model,"estate.hbs");
+        },new HandlebarsTemplateEngine());
+*/
 
         post("/collectors/new","application/json",(request, response) -> {
             Collector collector =gson.fromJson(request.body(),Collector.class);
