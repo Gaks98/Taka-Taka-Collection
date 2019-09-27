@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-7">
-                <form action=""method="post">
+                <form action="/collectors/new"method="post">
                     <div class="form-group">
                         <label for="FirmName">Firm name</label>
                         <input type="text" class="form-control" id="firmName" name="firmName" placeholder="Enter firm name">
@@ -24,14 +24,14 @@
                         <input type="text" class="form-control" id="disposalMode" name="disposalMode" placeholder="Enter firm's disposal mode of garbage">
                     </div>
                     <div class="form-group">
-                        <label for="recylclingSite">Recycling site</label>
-                        <input type="text" class="form-control" id="recyclingSite"  placeholder="Enter firm's recycling site">
+                        <label for="recyclingSite">Recycling site</label>
+                        <input type="text" class="form-control" id="recyclingSite" name="recyclingSite" placeholder="Enter firm's recycling site">
                     </div>
                     <div class="form-group">
                         <label for="customersNumber">Number of customers</label>
-                        <input type="text" class="form-control" id="customersNumber"  placeholder="Enter the current number of customers">
+                        <input type="number" class="form-control" id="customersNumber" name="customersNumber" placeholder="Enter the current number of customers">
                     </div>
-                    <button class="btn btn-success">Add</button>
+                    <button type="submit" class="btn btn-success">Add</button>
                 </form>
             </div>
             <div class="col-md-5">
