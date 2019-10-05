@@ -12,10 +12,10 @@ Project was done by :
 * Java
 * Postman
 ## set-up instructions
-  Clone the repo
-  Have  Development Environment
-  java Environment
-  Postman
+ * Clone the repo
+ * Have  Development Environment
+ * java Environment
+ * Postman
 ## License
 
   
