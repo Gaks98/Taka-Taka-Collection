@@ -6,6 +6,7 @@ Taka-collection is an appication that uses java,spark,H2 DATABASE and postman to
 Project was done by :
 * Gaks98
 * roba-pivot
+* franklin-kimatu
 ## Technology Used
 * Spark
 * H2 database
@@ -16,7 +17,11 @@ Project was done by :
  * Have  Development Environment
  * java Environment
  * Postman
+ 
+ ## Known Bugs
+  No known bugs
 ## License
+[README.md](LICENSE.md)
 
   
   
