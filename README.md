@@ -20,8 +20,9 @@ Project was done by :
  
  ## Known Bugs
   No known bugs
-## License
-[LICENSE.md](README.md)
+## Licencing
+
+[MIT License](LICENSE.md)
 
   
   
