@@ -21,7 +21,7 @@ Project was done by :
  ## Known Bugs
   No known bugs
 ## License
-[README.md](LICENSE.md)
+[LICENSE.md](README.md)
 
   
   
